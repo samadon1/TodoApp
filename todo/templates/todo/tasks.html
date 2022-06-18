@@ -1,0 +1,23 @@
+
+
+<!-- extend the layout template -->
+{% extends "todo/layout.html" %}
+
+
+{% block header %}
+    <h1>All tasks</h1>
+{% endblock %}
+
+
+
+{% block body %}
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task }}</li>
+            {% empty %}
+            <li>No tasks</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url "add" %}">Add new</a>
+
+{% endblock %}

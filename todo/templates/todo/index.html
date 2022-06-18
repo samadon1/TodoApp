@@ -1,0 +1,21 @@
+{% extends "todo/layout.html" %}
+{% include "todo/tasks.html" %}
+
+
+{% block header %}
+<h1>Add task</h1>
+{% endblock %}
+
+
+
+{% block body %}
+<form action="{% url 'add' %}" method="POST">
+    {% csrf_token %}
+
+    {{ form }}
+    <input type="submit">
+</form>
+<br><br>
+<a href="{% url "tasks" %}">All tasks</a>
+
+{% endblock %}
